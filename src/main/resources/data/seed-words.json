@@ -1,0 +1,302 @@
+[
+  {
+    "normalWord": "Pizza",
+    "imposterWord": "Burger",
+    "category": "Food",
+    "difficulty": "EASY"
+  },
+  {
+    "normalWord": "Dog",
+    "imposterWord": "Cat",
+    "category": "Animals",
+    "difficulty": "EASY"
+  },
+  {
+    "normalWord": "iPhone",
+    "imposterWord": "Android",
+    "category": "Technology",
+    "difficulty": "EASY"
+  },
+  {
+    "normalWord": "Cricket",
+    "imposterWord": "Football",
+    "category": "Sports",
+    "difficulty": "EASY"
+  },
+  {
+    "normalWord": "Titanic",
+    "imposterWord": "Avatar",
+    "category": "Movies",
+    "difficulty": "EASY"
+  },
+  {
+    "normalWord": "Beach",
+    "imposterWord": "Mountain",
+    "category": "Places",
+    "difficulty": "EASY"
+  },
+  {
+    "normalWord": "Coffee",
+    "imposterWord": "Tea",
+    "category": "Food",
+    "difficulty": "EASY"
+  },
+  {
+    "normalWord": "Car",
+    "imposterWord": "Motorcycle",
+    "category": "Vehicles",
+    "difficulty": "EASY"
+  },
+  {
+    "normalWord": "Doctor",
+    "imposterWord": "Nurse",
+    "category": "Professions",
+    "difficulty": "EASY"
+  },
+  {
+    "normalWord": "Facebook",
+    "imposterWord": "Instagram",
+    "category": "Social Media",
+    "difficulty": "EASY"
+  },
+  {
+    "normalWord": "Piano",
+    "imposterWord": "Guitar",
+    "category": "Music",
+    "difficulty": "EASY"
+  },
+  {
+    "normalWord": "Winter",
+    "imposterWord": "Summer",
+    "category": "Seasons",
+    "difficulty": "EASY"
+  },
+  {
+    "normalWord": "Shampoo",
+    "imposterWord": "Soap",
+    "category": "Daily Life",
+    "difficulty": "EASY"
+  },
+  {
+    "normalWord": "Superman",
+    "imposterWord": "Batman",
+    "category": "Entertainment",
+    "difficulty": "EASY"
+  },
+  {
+    "normalWord": "Pasta",
+    "imposterWord": "Noodles",
+    "category": "Food",
+    "difficulty": "EASY"
+  },
+  {
+    "normalWord": "Lion",
+    "imposterWord": "Tiger",
+    "category": "Animals",
+    "difficulty": "EASY"
+  },
+  {
+    "normalWord": "Laptop",
+    "imposterWord": "Desktop",
+    "category": "Technology",
+    "difficulty": "EASY"
+  },
+  {
+    "normalWord": "Basketball",
+    "imposterWord": "Volleyball",
+    "category": "Sports",
+    "difficulty": "EASY"
+  },
+  {
+    "normalWord": "Harry Potter",
+    "imposterWord": "Lord of the Rings",
+    "category": "Movies",
+    "difficulty": "MEDIUM"
+  },
+  {
+    "normalWord": "Hotel",
+    "imposterWord": "Hostel",
+    "category": "Places",
+    "difficulty": "MEDIUM"
+  },
+  {
+    "normalWord": "Cake",
+    "imposterWord": "Pastry",
+    "category": "Food",
+    "difficulty": "EASY"
+  },
+  {
+    "normalWord": "Bicycle",
+    "imposterWord": "Scooter",
+    "category": "Vehicles",
+    "difficulty": "EASY"
+  },
+  {
+    "normalWord": "Teacher",
+    "imposterWord": "Professor",
+    "category": "Professions",
+    "difficulty": "MEDIUM"
+  },
+  {
+    "normalWord": "YouTube",
+    "imposterWord": "Netflix",
+    "category": "Entertainment",
+    "difficulty": "EASY"
+  },
+  {
+    "normalWord": "Violin",
+    "imposterWord": "Cello",
+    "category": "Music",
+    "difficulty": "MEDIUM"
+  },
+  {
+    "normalWord": "Rain",
+    "imposterWord": "Snow",
+    "category": "Weather",
+    "difficulty": "EASY"
+  },
+  {
+    "normalWord": "Toothbrush",
+    "imposterWord": "Toothpaste",
+    "category": "Daily Life",
+    "difficulty": "EASY"
+  },
+  {
+    "normalWord": "Iron Man",
+    "imposterWord": "Spider-Man",
+    "category": "Entertainment",
+    "difficulty": "EASY"
+  },
+  {
+    "normalWord": "Burger",
+    "imposterWord": "Sandwich",
+    "category": "Food",
+    "difficulty": "EASY"
+  },
+  {
+    "normalWord": "Elephant",
+    "imposterWord": "Hippopotamus",
+    "category": "Animals",
+    "difficulty": "MEDIUM"
+  },
+  {
+    "normalWord": "Tablet",
+    "imposterWord": "iPad",
+    "category": "Technology",
+    "difficulty": "MEDIUM"
+  },
+  {
+    "normalWord": "Tennis",
+    "imposterWord": "Badminton",
+    "category": "Sports",
+    "difficulty": "EASY"
+  },
+  {
+    "normalWord": "Inception",
+    "imposterWord": "Interstellar",
+    "category": "Movies",
+    "difficulty": "MEDIUM"
+  },
+  {
+    "normalWord": "Library",
+    "imposterWord": "Bookstore",
+    "category": "Places",
+    "difficulty": "EASY"
+  },
+  {
+    "normalWord": "Ice Cream",
+    "imposterWord": "Frozen Yogurt",
+    "category": "Food",
+    "difficulty": "EASY"
+  },
+  {
+    "normalWord": "Train",
+    "imposterWord": "Bus",
+    "category": "Vehicles",
+    "difficulty": "EASY"
+  },
+  {
+    "normalWord": "Pilot",
+    "imposterWord": "Air Hostess",
+    "category": "Professions",
+    "difficulty": "MEDIUM"
+  },
+  {
+    "normalWord": "WhatsApp",
+    "imposterWord": "Telegram",
+    "category": "Technology",
+    "difficulty": "EASY"
+  },
+  {
+    "normalWord": "Drum",
+    "imposterWord": "Tabla",
+    "category": "Music",
+    "difficulty": "MEDIUM"
+  },
+  {
+    "normalWord": "Spring",
+    "imposterWord": "Autumn",
+    "category": "Seasons",
+    "difficulty": "MEDIUM"
+  },
+  {
+    "normalWord": "Towel",
+    "imposterWord": "Blanket",
+    "category": "Daily Life",
+    "difficulty": "EASY"
+  },
+  {
+    "normalWord": "Thor",
+    "imposterWord": "Hulk",
+    "category": "Entertainment",
+    "difficulty": "EASY"
+  },
+  {
+    "normalWord": "Sushi",
+    "imposterWord": "Sashimi",
+    "category": "Food",
+    "difficulty": "MEDIUM"
+  },
+  {
+    "normalWord": "Penguin",
+    "imposterWord": "Ostrich",
+    "category": "Animals",
+    "difficulty": "MEDIUM"
+  },
+  {
+    "normalWord": "Keyboard",
+    "imposterWord": "Mouse",
+    "category": "Technology",
+    "difficulty": "EASY"
+  },
+  {
+    "normalWord": "Chess",
+    "imposterWord": "Checkers",
+    "category": "Games",
+    "difficulty": "EASY"
+  },
+  {
+    "normalWord": "Frozen",
+    "imposterWord": "Moana",
+    "category": "Movies",
+    "difficulty": "EASY"
+  },
+  {
+    "normalWord": "Gym",
+    "imposterWord": "Yoga Studio",
+    "category": "Places",
+    "difficulty": "EASY"
+  },
+  {
+    "normalWord": "Chocolate",
+    "imposterWord": "Candy",
+    "category": "Food",
+    "difficulty": "EASY"
+  },
+  {
+    "normalWord": "Airplane",
+    "imposterWord": "Helicopter",
+    "category": "Vehicles",
+    "difficulty": "EASY"
+  }
+]
