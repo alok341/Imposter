@@ -28,4 +28,11 @@ public class Player {
     private Instant joinedAt;
 
     private Instant lastSeenAt;
+      /**
+     * The last round number this player was chosen as imposter.
+     * 0 means "never been imposter".
+     * Used to prevent consecutive imposter picks in consecutive rounds.
+     */
+    @Builder.Default
+    private int lastImposterRound = 0;
 }
