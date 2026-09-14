@@ -2,7 +2,6 @@ package com.imposter.game.service;
 
 import com.imposter.game.dto.game.AssignmentResponse;
 import com.imposter.game.dto.game.GameStateResponse;
-import com.imposter.game.dto.game.StartGameRequest;
 import com.imposter.game.enums.GameStatus;
 import com.imposter.game.exception.*;
 import com.imposter.game.model.*;
@@ -14,6 +13,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.Instant;
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -79,7 +80,8 @@ public class GameService {
         notificationService.notifyGameStarted(savedRoom);
 
         log.info("Game started in room {} with {} imposters. Round: {}",
-                roomCode, finalImposterCount, savedRoom.getCurrentRound() != null ? savedRoom.getCurrentRound().getRoundNumber() : 0);
+                roomCode, finalImposterCount,
+                savedRoom.getCurrentRound() != null ? savedRoom.getCurrentRound().getRoundNumber() : 0);
 
         return GameStateResponse.fromEntity(savedRoom);
     }
@@ -93,13 +95,17 @@ public class GameService {
             WordSet wordSet = wordService.selectWordSet(room);
             log.debug("Selected word set: {}", wordSet.getId());
 
+            // Compute the new round number BEFORE selecting imposters
+            // (selectImposters needs to know the current round to record it)
+            int nextRound = getNextRoundNumber(room);
+
             // Select imposters
-            List<String> imposterIds = selectImposters(room);
+            List<String> imposterIds = selectImposters(room, nextRound);
             log.debug("Selected imposters: {}", imposterIds);
 
             // Create current round
             CurrentRound round = CurrentRound.builder()
-                    .roundNumber(getNextRoundNumber(room))
+                    .roundNumber(nextRound)
                     .wordSetId(wordSet.getId())
                     .imposterIds(imposterIds)
                     .build();
@@ -114,23 +120,47 @@ public class GameService {
     }
 
     /**
-     * Select random imposters from players.
+     * Select imposters for the current round.
+     *
+     * Strategy:
+     * 1. Prefer players who were NOT imposter in the previous round.
+     * 2. Fall back to full pool if not enough eligible players (defensive).
+     * 3. Randomly pick from eligible pool.
+     * 4. Record the round number on each chosen player.
+     *
+     * Guarantee: with 4+ players and 1-3 imposters, no player is imposter two rounds in a row.
      */
-    private List<String> selectImposters(Room room) {
+    private List<String> selectImposters(Room room, int currentRound) {
         int imposterCount = room.getSettings().getImposterCount();
-        log.debug("Selecting {} imposters from {} players", imposterCount, room.getPlayers().size());
+        int previousRound = currentRound - 1;
 
-        // Get all player IDs
-        List<String> playerIds = room.getPlayers().stream()
-                .map(Player::getPlayerId)
+        log.debug("Selecting {} imposters for round {} from {} players",
+                imposterCount, currentRound, room.getPlayers().size());
+
+        // Build pool of eligible players (exclude last round's imposters)
+        List<Player> eligiblePlayers = room.getPlayers().stream()
+                .filter(p -> previousRound <= 0 || p.getLastImposterRound() != previousRound)
                 .collect(Collectors.toList());
 
-        log.debug("Player IDs: {}", playerIds);
+        // Safety: if not enough eligible players, fall back to full pool
+        if (eligiblePlayers.size() < imposterCount) {
+            log.warn("Not enough eligible players for round {} (have {}, need {}). Falling back to full pool.",
+                    currentRound, eligiblePlayers.size(), imposterCount);
+            eligiblePlayers = new ArrayList<>(room.getPlayers());
+        }
 
-        // Select random imposters
-        List<String> imposterIds = randomUtil.selectRandomMultiple(playerIds, imposterCount);
+        // Randomly select imposters from eligible pool
+        List<Player> selectedPlayers = randomUtil.selectRandomMultiple(eligiblePlayers, imposterCount);
 
-        log.debug("Selected imposter IDs: {}", imposterIds);
+        // Update each chosen player's lastImposterRound and extract IDs
+        List<String> imposterIds = new ArrayList<>();
+        for (Player p : selectedPlayers) {
+            p.setLastImposterRound(currentRound);
+            imposterIds.add(p.getPlayerId());
+            log.debug("Player {} ({}) is imposter for round {}",
+                    p.getName(), p.getPlayerId(), currentRound);
+        }
+
         return imposterIds;
     }
 
